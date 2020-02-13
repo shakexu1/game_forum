@@ -1,0 +1,391 @@
+/* === 预设类 === */
+* {
+	padding: 0;
+	margin: 0;
+}
+
+*,
+::after,
+::before {
+	box-sizing: border-box;
+}
+
+*::-webkit-scrollbar {
+	/*滚动条整体样式*/
+	width: 0.75rem;
+	/*高宽分别对应横竖滚动条的尺寸*/
+	height: 0.5rem;
+}
+
+*::-webkit-scrollbar-thumb {
+	/*滚动条里面小方块*/
+	border-radius: 0.75rem;
+	box-shadow: inset 0 0 0.25rem rgba(0, 0, 0, 0.2);
+	background: rgba(0, 0, 0, 0.5);
+}
+
+*::-webkit-scrollbar-track {
+	/*滚动条里面轨道*/
+	box-shadow: inset 0 0 0.25rem rgba(0, 0, 0, 0.2);
+	border-radius: 0.75rem;
+	background: rgba(128, 128, 128, 0.5);
+}
+
+/* 伪类 */
+h2::before,
+h2::after,
+h5::before,
+h5::after,
+p::before,
+p::after {
+	content: "";
+	display: inline-block;
+}
+
+dl::before,
+dl::after,
+ul::before,
+ul::after,
+ol::before,
+ol::after,
+div::before,
+div::after,
+header::before,
+header::after,
+footer::before,
+footer::after,
+nav::before,
+nav::after,
+frame::before,
+frame::after,
+code::before,
+code::after,
+address::before,
+address::after,
+article::before,
+article::after,
+aside::before,
+aside::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+section::before,
+section::after {
+	content: "";
+	display: block;
+}
+
+body {
+	font-family: "arial, helvetica, sans-serif";
+	line-height: 1.5;
+	overflow-x: hidden;
+	background-color: #ededed;
+}
+
+/* === 框架类（布局类） === */
+/* 链接 */
+a {
+	text-decoration: none;
+}
+
+/* 地址信息 */
+address {
+	display: block;
+}
+
+/* 定义文章 */
+article {
+	display: block;
+}
+
+/* 文章边栏 */
+aside {
+	display: block;
+}
+
+/* 代码 */
+code {
+	display: block;
+}
+
+/* 自由块 */
+div {
+	display: block;
+}
+
+/* 页脚 */
+footer {
+	display: block;
+	width: 100%;
+	background-color: #F7F7F7;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	min-height: 2rem;
+}
+
+/* 框架 */
+frame {
+	display: block;
+}
+
+/* 页头 */
+header {
+	display: block;
+	width: 100%;
+	background: rgb(102, 102, 110);
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	min-height: 3rem;
+	z-index: 10;
+}
+
+/* 导航 */
+nav {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	justify-items: stretch;
+	align-content: space-between;
+	align-items: stretch;
+}
+
+/* 部分（区域） */
+section {
+	padding: 1rem;
+	margin: 0rem;
+	background: #fff;
+	box-shadow: 0 0.5rem 1rem 0 rgba(7, 17, 27, .1);
+	border-radius: 0.5rem;
+	width: 100%;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+/* === 列表类 === */
+/* 带标题列表（定义列表） */
+dl {
+	display: block;
+}
+
+/* 项目标题 */
+dt {
+	float: left;
+	clear: left;
+	font-weight: 600;
+}
+
+/* 项目描述 */
+dd {
+	float: left;
+	display: block;
+}
+
+/* 有序列表 */
+ol {
+	display: block;
+	padding-left: 2rem;
+}
+
+/* 无序列表 */
+ul {
+	width: 100%;
+	display: block;
+}
+
+/* 列表项 */
+ul li {
+	display: block;
+	float: left;
+	
+}
+
+ol li {
+	list-style-type: decimal;
+	list-style-position: inside;
+}
+
+/* === 表格类 === */
+/* 表格 */
+table {
+	border: 1px solid #dee2e6;
+	width: 100%;
+	margin-bottom: 1rem;
+	color: #212529;
+	border-collapse: collapse;
+	background-color: #FFFFFF;
+}
+
+/* 表头 */
+thead {}
+
+/* 表主体 */
+tbody {}
+
+/* 表尾 */
+tfoot {}
+
+/* 表行 */
+tr {}
+
+/* 表标题列 */
+th {
+	padding: .75rem;
+	vertical-align: top;
+	border: 1px solid #dee2e6;
+	text-align: inherit;
+}
+
+thead th {
+	vertical-align: bottom;
+	border-bottom: 2px solid #dee2e6;
+}
+
+/* 表列 */
+td {
+	padding: .75rem;
+	vertical-align: top;
+	border: 1px solid #dee2e6;
+}
+
+
+/* === 表单类 === */
+/* 表单 */
+form {
+	display: flex;
+	align-content: space-between;
+	align-items: stretch;
+	justify-content: space-between;
+	justify-items: stretch;
+}
+
+input,
+select,
+button {
+	height: 2rem;
+	line-height: 2rem;
+	border-radius: 0.25rem;
+	border: 1px solid #dbdbdb;
+	color: #FFFFFF;
+	padding: 0 0.75rem;
+}
+
+/* 输入框 */
+input {
+	display: inline-block;
+}
+
+/* 选择框 */
+select {
+	display: inline-block;
+}
+
+/* 按钮 */
+button {
+	display: inline-block;
+}
+
+/* 文本域 */
+textarea {
+	display: inline-block;
+}
+
+/* === 媒体类 === */
+/* 音频 */
+audio {}
+
+/* 绘画 */
+canvas {}
+
+/* 图片相框 */
+figure {
+	position: relative;
+	border-radius: 0.5rem;
+	overflow: hidden;
+}
+
+/* 图片描述 */
+figcaption {
+	display: block;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	color: #fff;
+	font-size: 0.75rem;
+}
+
+figcaption span {
+	margin: 0.5rem;
+}
+
+/* 图片 */
+img {
+	display: block;
+	border: none;
+	width:100%;
+}
+
+/* 视频 */
+video {}
+
+/* === 内容类 === */
+
+/* 标题 */
+h1 {
+	font-size: 2rem;
+}
+
+h2 {
+	font-size: 1.75rem;
+}
+
+h3 {
+	font-size: 1.5rem;
+}
+
+h4 {
+	font-size: 1.25rem;
+}
+
+h5 {
+	font-size: 1rem;
+}
+
+h6 {
+	font-size: 0.75rem;
+}
+
+/* 段落 */
+p {
+	font-size: 1rem;
+}
+
+/* 间隔 */
+span {}
+
+/* 斜体（改用字体图标） */
+i {
+	font-family: "FontAwesome";
+}
+
+@media screen and (max-device-width	: 480px) {
+	*::-webkit-scrollbar {
+		display: none;
+	}
+
+	*::-webkit-scrollbar-thumb {
+		display: none;
+	}
+
+	*::-webkit-scrollbar-track {
+		display: none;
+	}
+}

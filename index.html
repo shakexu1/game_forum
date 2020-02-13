@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="utf-8">
+		<title>朋友圈</title>
+		<link rel="stylesheet" href="./css/common.css">
+		<link rel="stylesheet" href="./css/font-awesome.min.css">
+		<script src="js/flexible.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<style>
+			body {
+				background-color: #fff;
+
+			}
+
+			header {
+				background: none;
+			}
+
+			section {
+				border-radius: 0;
+				padding: 0;
+			}
+
+
+			header h2,
+			section h2,
+			footer h2 {
+				visibility: hidden;
+				font-size: 0;
+			}
+
+			#share_top .back {
+				padding: 1rem;
+				color: #fff;
+				float: left;
+			}
+
+			#share_top .share {
+				padding: 1rem;
+				color: #fff;
+				float: right;
+			}
+
+			#cover {
+				box-shadow: none;
+			}
+
+			#cover .cover-top {
+				border-radius: 0;
+			}
+
+			#cover .cover-top img {
+				height: 14rem;
+			}
+
+			#user {
+				background: none;
+				box-shadow: none;
+				margin-top: -2.75rem;
+			}
+
+			#user .user {}
+
+			#user .user .user-name {
+				/* float: right; */
+				/* height: 3.5rem; */
+				/* line-height: 3.5rem; */
+				/* margin-right: 0.5rem; */
+				color: #FFFFFF;
+				position: absolute;
+				transform: translate(0, -50%);
+				top: 50%;
+				right: 5rem;
+			}
+
+			#user .user .user-photo {
+				float: right;
+				width: 3.5rem;
+				margin-right: 0.8rem;
+				border-radius: 0.4rem;
+			}
+
+			#friend_info {
+				margin-top: 2rem;
+				box-shadow: none;
+
+			}
+
+			#share-item aside {
+				float: left;
+			}
+
+			#share-item aside .friend-photo {
+				width: 2rem;
+				margin-left: 0.5rem;
+				border-radius: 0.2rem;
+			}
+
+			#share-item article {
+				/* float: left; */
+				overflow: hidden;
+				margin-left: 3rem;
+			}
+
+			#share-item article p {
+				margin-bottom: 0.3rem;
+				margin-right: 1.2rem;
+			}
+
+			#share-item article h5 {
+				color: #007AFF;
+				font-size: 0.85rem;
+			}
+
+			#share-item article .list_figure figure {
+				border-radius: 0;
+				width: 50%;
+			}
+
+			#share-item article .time {
+				font-size: 0.8rem;
+
+			}
+
+			#share-item article .share-bottom {
+				padding: 0.6rem 0;
+			}
+			
+			#share-item article .reply-hidden {
+				float: right;
+				background-color: #DBDBDB;
+				margin-top: 0.25rem;
+				padding: 0 0.5rem;
+				height: 1.2rem;
+				line-height: 1.2rem;
+				font-size: 1.5rem;
+				font-weight: bold;
+				border-radius: 0.2rem;
+			}
+			#share-item article .reply-hidden::after{
+				content: "..";
+				position: relative;
+				top: -0.4rem;
+			}
+			
+			#share-item article .reply{
+				display: inline-block;
+				background-color: #000000;
+				color:#FFFFFF;
+				position: absolute;
+				bottom: 0.5rem;
+				right: 3.8rem;
+				border-radius: 0.3rem;
+				overflow: visible;
+			}
+			
+			#share-item article .reply botton{
+				display: inline-block;
+				width: 4.2rem;
+				font-size: 0.8rem;
+				text-align: center;
+				height: 2rem;
+				line-height: 2rem;
+			}
+			
+			#share-item article .reply::after{
+				display: block;
+				content: "";
+				width: 0.5rem;
+				height:0.5rem;
+				transform: rotate(45deg);
+				position: absolute;
+				top:38%;
+				right: -0.2rem;
+				background-color: #000000;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<header id="share_top">
+			<div>
+				<h2>朋友圈顶部</h2>
+			</div>
+			<div class="back"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+			<div class="share"><i class="fa fa-camera-retro" aria-hidden="true"></i></div>
+		</header>
+		<section id="cover">
+			<div>
+				<h2>封面</h2>
+			</div>
+			<div>
+				<figure class="cover-top"><img src="./img/封面.jpeg" alt="封面"></figure>
+			</div>
+		</section>
+
+		<section id="user">
+			<div>
+				<h2>用户栏</h2>
+			</div>
+			<div class="user">
+				<figure class="user-photo"><img src="./img/用户头像.jpg" alt=""></figure>
+				<p class="user-name">Tao</p>
+			</div>
+		</section>
+
+		<section id="share-item">
+			<div>
+				<h2>分享内容</h2>
+			</div>
+
+			<div class="share-item">
+				<aside>
+					<figure class="friend-photo"><img src="./img/朋友头像.jpg" alt=""></figure>
+				</aside>
+				<article>
+					<h5>程小东</h5>
+					<p>今天的太阳可以今天的太阳可以今天的太阳可以今天的太阳可以今天的太阳可以今天的太阳可以</p>
+					<ul class="list_figure">
+						<li>
+							<figure><img src="./img/封面.jpeg" alt="分享图片"></figure>
+						</li>
+					</ul>
+					<p class="share-bottom">
+						<span class="time">5分钟前</span>
+						<span class="reply-hidden"></span>
+					</p>
+					<div class="reply">
+						<botton type="bottom"><i class="fa fa-heart-o" aria-hidden="true"></i> 赞</botton><botton type="bottom"><i class="fa fa-comment-o" aria-hidden="true"></i> 评论</botton>
+					</div>
+				</article>
+			</div>
+
+		</section>
+		<footer id="reply_input">
+			<div>
+				<h2>无</h2>
+			</div>
+			<div class="reply-input">
+				<input type="text" id="search_input" autocomplete="off" placeholder="评论">
+			</div>
+		</footer>
+	</body>
+</html>
