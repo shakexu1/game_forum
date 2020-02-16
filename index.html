@@ -2,46 +2,81 @@
 <html lang="zh">
 	<head>
 		<meta charset="utf-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="x-dns-prefetch-control" content="on">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="description" content="超级美眉mm_koa版服务端框架是一个高并发、分布式服务端框架, 适用于开发中小型商城、游戏、saas平台">
+		<meta name="keywords" content="超级美眉 mm_koa 高并发 异步 服务端 分布式 框架 商城 游戏 saas async">
+		<meta name="author" content="邱文武">
 		<title>朋友圈</title>
 		<link rel="stylesheet" href="./css/common.css">
 		<link rel="stylesheet" href="./css/font-awesome.min.css">
-		<script src="js/flexible.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script src="./js/jquery.min.js"></script>
 		<style>
 			body {
 				background-color: #fff;
-
 			}
-
+			
+			.page{
+				position: relative;
+			}
+			
 			header {
+				color: #FFFFFF;
 				background: none;
-			}
 
+			}
+			
+			footer{
+				position: absolute;
+			}
+			
+			.bg_header {
+				color: #333;
+				background-color: #f2f2f2;
+			}
+			
+			main{
+			}
+			
 			section {
 				border-radius: 0;
 				padding: 0;
+
 			}
-
-
-			header h2,
-			section h2,
-			footer h2 {
-				visibility: hidden;
-				font-size: 0;
+			
+			ul{
+				display: flex;
+				justify-content: space-between;
+				justify-items: stretch;
+				align-content: space-between;
+				align-items: stretch;
+				flex-wrap: wrap;
+				justify-content: flex-start;
 			}
-
-			#share_top .back {
-				padding: 1rem;
-				color: #fff;
+			
+			#share_top_plus .back {
+				padding: 1rem 0 1rem 0.5rem;
 				float: left;
 			}
-
-			#share_top .share {
-				padding: 1rem;
-				color: #fff;
-				float: right;
+			
+			#share_top_plus .friend-circle{
+				padding: 1rem 0.5rem;
+				float:left;
 			}
 
+			#share_top_plus .share {
+				padding: 1rem 0.8rem;
+				float: right;
+			}
+			
+
+			
 			#cover {
 				box-shadow: none;
 			}
@@ -80,57 +115,96 @@
 				margin-right: 0.8rem;
 				border-radius: 0.4rem;
 			}
-
-			#friend_info {
-				margin-top: 2rem;
-				box-shadow: none;
-
+			
+			#list_share{
+				font-size: 0.875rem;
+				overflow: hidden;
 			}
-
-			#share-item aside {
+			
+			#list_share .share-item{
+				margin-bottom: 1rem;
+				padding-bottom: 1rem;
+				border-bottom: 1px solid #f5f5f5;
+			}
+			
+			#list_share aside {
 				float: left;
 			}
 
-			#share-item aside .friend-photo {
-				width: 2rem;
-				margin-left: 0.5rem;
+			#list_share aside .friend-photo {
+				width: 2.3rem;
+				margin-left: 0.8rem;
 				border-radius: 0.2rem;
 			}
 
-			#share-item article {
+			#list_share article {
 				/* float: left; */
 				overflow: hidden;
-				margin-left: 3rem;
+				margin-left: 3.8rem;
 			}
 
-			#share-item article p {
+			#list_share article p {
 				margin-bottom: 0.3rem;
-				margin-right: 1.2rem;
+				margin-right: 1rem;
 			}
 
-			#share-item article h5 {
-				color: #007AFF;
-				font-size: 0.85rem;
-			}
-
-			#share-item article .list_figure figure {
-				border-radius: 0;
-				width: 50%;
-			}
-
-			#share-item article .time {
-				font-size: 0.8rem;
-
-			}
-
-			#share-item article .share-bottom {
-				padding: 0.6rem 0;
+			#list_share article h5 {
+				color: rgb(108,115,160);
 			}
 			
-			#share-item article .reply-hidden {
+
+			#list_share article .list_figure1 li{
+				width: 50%;
+				float: left;
+			}
+			
+			
+			#list_share article .list_figure4 li{
+				margin: 0.125rem;
+				width: 7.5rem;
+				float: left;
+			}
+			
+			#list_share article .list_figure4 li{
+				margin: 0.125rem;
+				width: 7.5rem;
+				float: left;
+			}
+			
+			#list_share article .list_figure9 li{
+				margin: 0.125rem;
+				width: 5.625rem;
+				float: left;
+			}
+			
+			#list_share article figure{
+				background:none;
+				height: auto;
+				border-radius: 0;
+			}
+			
+			#list_share article .list_figure4 figure img{
+				height: 7.5rem;
+			}
+			
+			#list_share article .list_figure9 figure img{
+				height: 5.625rem;
+			}
+			
+			#list_share article .time {
+				color:#999;
+			}
+
+			#list_share article .share-bottom {
+				padding: 0.45rem 0;
+				position: relative;
+			}
+			
+			#list_share article .reply-hidden {
 				float: right;
-				background-color: #DBDBDB;
-				margin-top: 0.25rem;
+				background-color: #f2f2f2;
+				margin-top: 0.3rem;
+				margin-right:0.8rem;
 				padding: 0 0.5rem;
 				height: 1.2rem;
 				line-height: 1.2rem;
@@ -138,34 +212,43 @@
 				font-weight: bold;
 				border-radius: 0.2rem;
 			}
-			#share-item article .reply-hidden::after{
+			#list_share article .reply-hidden::after{
 				content: "..";
 				position: relative;
-				top: -0.4rem;
+				top: -0.5rem;
 			}
 			
-			#share-item article .reply{
+			
+			#list_share article .share-bottom .reply-botton{
 				display: inline-block;
+				width: 0;
 				background-color: #000000;
 				color:#FFFFFF;
 				position: absolute;
-				bottom: 0.5rem;
-				right: 3.8rem;
+				bottom: 0rem;
+				right: 3.5rem;
 				border-radius: 0.3rem;
-				overflow: visible;
+				overflow: hidden;
+				transition: all 0.25s;
+				white-space:nowrap;
+
 			}
 			
-			#share-item article .reply botton{
+			#list_share article .active .reply-botton{
+				width: 9rem;
+				overflow: visible;
+			}
+			#list_share article .reply-botton botton{
 				display: inline-block;
 				width: 4.2rem;
 				font-size: 0.8rem;
 				text-align: center;
-				height: 2rem;
-				line-height: 2rem;
+				height: 2.5rem;
+				line-height: 2.5rem;
 			}
 			
-			#share-item article .reply::after{
-				display: block;
+			#list_share article .reply-botton::after{
+				display: none;
 				content: "";
 				width: 0.5rem;
 				height:0.5rem;
@@ -176,70 +259,284 @@
 				background-color: #000000;
 			}
 			
+			#list_share article .active .reply-botton::after{
+				display: block;
+				
+			}
+			
+			#list_share article .give-like{
+				margin-right: 0.8rem;
+				padding: 0.2rem 0.4rem;
+				background-color: #f2f2f2;
+				border-bottom: #DBDBDB;
+			}
+			#list_share article .give-like i{
+				margin-right: 0.4rem;
+			}
+			
+			#list_share article .reply-text{
+				margin-right: 0.8rem;
+				padding: 0.2rem 0.4rem;
+				background-color: #f2f2f2;
+			}
+			
+			
+			#list_share article .replier{
+				display: inline-block;
+				color:rgb(108,115,160);
+				font-weight: 600;
+			}
+			
+			#list_share article .reply-text .text{
+				display: inline-block;
+			}
+			
+			#reply_send{
+				display: none;
+				z-index: 10;
+				margin-bottom: 4.65rem;
+			}
+			
+			#reply_send.active{
+				display: block;
+			}
+			
+			#reply_send .expression{
+				float: right;
+				margin-top: 0.25rem;
+				padding: 0 0.25rem;
+				font-size: 1.75rem;
+				
+			}
+			
+			#reply_send #reply_input{
+				height: 2.5rem;
+				line-height: 1.5rem;
+				width: calc(100% - 7.5rem);
+				margin: 0.3rem 0rem 0.3rem 0.6rem;
+				padding: 0.5rem;
+				font-size: 0.875rem;
+				color: #000000;
+				border:none;
+			}
+			
+			#reply_send .send{
+				float: right;
+				margin: 0.7rem 0.3rem 0;
+				padding: 0.25rem 1rem;
+				/* color:#DBDBDB */
+				color: #FFFFFF;
+				background-color: #07C160;
+				border-radius: 0.25rem;
+			}
+			
+			.mask{
+				display: none;
+				width: 100%;
+				height: 100%;
+				position: fixed;
+				top:0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				z-index: 5;
+			}
+			
 		</style>
 	</head>
 	<body>
-		<header id="share_top">
-			<div>
-				<h2>朋友圈顶部</h2>
-			</div>
-			<div class="back"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
-			<div class="share"><i class="fa fa-camera-retro" aria-hidden="true"></i></div>
-		</header>
-		<section id="cover">
-			<div>
-				<h2>封面</h2>
-			</div>
-			<div>
-				<figure class="cover-top"><img src="./img/封面.jpeg" alt="封面"></figure>
-			</div>
-		</section>
+		<div class="page">
+			<header id="share_top_plus">
+				<div>
+					<h2>朋友圈顶部</h2>
+				</div>
+				<div class="back"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+				<div class="friend-circle"><span>朋友圈</span></div>
+				<div class="share"><i class="fa fa-camera-retro" aria-hidden="true"></i></div>
+			</header>
 
-		<section id="user">
-			<div>
-				<h2>用户栏</h2>
-			</div>
-			<div class="user">
-				<figure class="user-photo"><img src="./img/用户头像.jpg" alt=""></figure>
-				<p class="user-name">Tao</p>
-			</div>
-		</section>
-
-		<section id="share-item">
-			<div>
-				<h2>分享内容</h2>
-			</div>
-
-			<div class="share-item">
-				<aside>
-					<figure class="friend-photo"><img src="./img/朋友头像.jpg" alt=""></figure>
-				</aside>
-				<article>
-					<h5>程小东</h5>
-					<p>今天的太阳可以今天的太阳可以今天的太阳可以今天的太阳可以今天的太阳可以今天的太阳可以</p>
-					<ul class="list_figure">
-						<li>
-							<figure><img src="./img/封面.jpeg" alt="分享图片"></figure>
-						</li>
-					</ul>
-					<p class="share-bottom">
-						<span class="time">5分钟前</span>
-						<span class="reply-hidden"></span>
-					</p>
-					<div class="reply">
-						<botton type="bottom"><i class="fa fa-heart-o" aria-hidden="true"></i> 赞</botton><botton type="bottom"><i class="fa fa-comment-o" aria-hidden="true"></i> 评论</botton>
+			<main>
+				<section id="cover">
+					<div>
+						<h2>封面</h2>
 					</div>
-				</article>
-			</div>
+					<div>
+						<figure class="cover-top"><img src="./img/封面.jpeg" alt="封面"></figure>
+					</div>
+				</section>
 
-		</section>
-		<footer id="reply_input">
-			<div>
-				<h2>无</h2>
-			</div>
-			<div class="reply-input">
-				<input type="text" id="search_input" autocomplete="off" placeholder="评论">
-			</div>
-		</footer>
+				<section id="user">
+					<div>
+						<h2>用户栏</h2>
+					</div>
+					<div class="user">
+						<figure class="user-photo"><img src="./img/用户头像.jpg" alt=""></figure>
+						<p class="user-name">Tao</p>
+					</div>
+				</section>
+
+				<section id="list_share">
+					<div>
+						<h2>分享内容</h2>
+					</div>
+					<div class="share-item">
+						<aside>
+							<figure class="friend-photo"><img src="./img/朋友头像.jpg" alt=""></figure>
+						</aside>
+						<article>
+							<h5>程小东</h5>
+							<p>今天的太阳可以今天的太阳可以今天的太阳可以今天的太阳可以今天的太阳可以今天的太阳可以</p>
+							<ul class="list_figure1">
+								<li>
+									<figure><img src="./img/封面.jpeg" alt=""></figure>
+								</li>
+							</ul>
+							<div class="share-bottom">
+								<span class="time">5分钟前</span>
+								<span class="reply-hidden"></span>
+								<div class="reply-botton">
+									<botton type="botton"><i class="fa fa-heart-o" aria-hidden="true"></i> 赞</botton>
+									<botton type="botton" class="comment-botton"><i class="fa fa-comment-o" aria-hidden="true"></i> 评论</botton>
+								</div>
+							</div>
+							<div class="give-like">
+								<p><span class="replier"><i class="fa fa-heart-o" aria-hidden="true"></i>朱浩两,小米</span></p>
+							</div>
+							<div class="reply-text">
+								<p class="text"><span class="replier">朱浩两</span>:求带离开永恒钻石</p>
+								<p class="text"><span class="replier">朱浩两</span>回复<span class="replier">朱浩两</span>:求带离开永恒钻石酷酷酷酷酷哈哈哈哈哈</p>
+							</div>
+						</article>
+					</div>
+
+
+					<div class="share-item">
+						<aside>
+							<figure class="friend-photo"><img src="./img/朋友头像.jpg" alt=""></figure>
+						</aside>
+						<article>
+							<h5>程小东</h5>
+							<p>今天的太阳可以今天的太阳可以今天的太阳可以今天的太阳可以今天的太阳可以今天的太阳可以</p>
+							<ul class="list_figure4">
+								<li>
+									<figure><img src="./img/封面.jpeg" alt=""></figure>
+								</li>
+								<li>
+									<figure><img src="./img/封面测试.png" alt=""></figure>
+								</li>
+								<li>
+									<figure><img src="./img/朋友圈图1.jpg" alt=""></figure>
+								</li>
+								<li>
+									<figure><img src="./img/朋友圈图2.jpg" alt=""></figure>
+								</li>
+							</ul>
+							<div class="share-bottom">
+								<span class="time">5分钟前</span>
+								<span class="reply-hidden"></span>
+								<div class="reply-botton">
+									<botton type="botton"><i class="fa fa-heart-o" aria-hidden="true"></i> 赞</botton>
+									<botton type="botton" class="comment-botton"><i class="fa fa-comment-o" aria-hidden="true"></i> 评论</botton>
+								</div>
+							</div>
+
+						</article>
+					</div>
+
+					<div class="share-item">
+						<aside>
+							<figure class="friend-photo"><img src="./img/朋友头像2.jpg" alt=""></figure>
+						</aside>
+						<article>
+							<h5>程大东</h5>
+							<p>今天的太阳可以今天的太阳可以今天的太阳可以今天的太阳可以今天的太阳可以今天的太阳可以</p>
+							<ul class="list_figure9">
+								<li>
+									<figure><img src="./img/封面.jpeg" alt=""></figure>
+								</li>
+								<li>
+									<figure><img src="./img/朋友圈图2.jpg" alt=""></figure>
+								</li>
+								<li>
+									<figure><img src="./img/朋友圈图三.jpg" alt=""></figure>
+								</li>
+								<li>
+									<figure><img src="./img/朋友圈图5.jpg" alt=""></figure>
+								</li>
+								<li>
+									<figure><img src="./img/封面.jpeg" alt=""></figure>
+								</li>
+								<li>
+									<figure><img src="./img/朋友圈图2.jpg" alt=""></figure>
+								</li>
+								<li>
+									<figure><img src="./img/朋友圈图三.jpg" alt=""></figure>
+								</li>
+								<li>
+									<figure><img src="./img/朋友圈图5.jpg" alt=""></figure>
+								</li>
+								<li>
+									<figure><img src="./img/封面.jpeg" alt=""></figure>
+								</li>
+							</ul>
+							<div class="share-bottom">
+								<span class="time">5分钟前</span>
+								<span class="reply-hidden"></span>
+								<div class="reply-botton">
+									<botton type="botton"><i class="fa fa-heart-o" aria-hidden="true"></i> 赞</botton>
+									<botton type="botton" class="comment-botton"><i class="fa fa-comment-o" aria-hidden="true"></i> 评论</botton>
+								</div>
+							</div>
+						</article>
+					</div>
+				</section>
+			</main>
+
+			<footer id="reply_send">
+				<div>
+					<h2>无</h2>
+				</div>
+				<div class="reply-send">
+					<input type="text" name="reply-input" id="reply_input" autocomplete="off" placeholder="评论" />
+					<div class="send"><span>发送</span></div>
+					<div class="expression"><i class="fa fa-smile-o" aria-hidden="true"></i></div>
+				</div>
+			</footer>
+			<div class="mask"></div>
+		</div>
+		<script type="text/javascript">
+			$(window).on("scroll", function() {
+				var top = $(window).scrollTop();
+				if (top <= 32) {
+					$("#share_top_plus").removeClass("bg_header");
+				} else {
+					$("#share_top_plus").addClass("bg_header")
+				}
+			})
+		
+			$(".reply-hidden").on("click", function() {
+
+				if ($(this).parent().hasClass("active")) {
+					$(".reply-hidden").parent().removeClass("active");
+				} else {
+					$(".reply-hidden").parent().removeClass("active");
+					$(this).parent().addClass("active")
+				}
+			})
+
+			$(".comment-botton").on("click", function() {
+				$(".reply-hidden").parent().removeClass("active");
+				$("#reply_send").addClass("active");
+				$(".mask").show();
+				$("#reply_input").focus();
+
+				
+			})
+
+			$(".mask").on("click", function() {
+				$(".mask").hide();
+				$("#reply_send").removeClass("active");
+			})
+		</script>
 	</body>
 </html>
